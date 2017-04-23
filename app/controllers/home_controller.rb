@@ -9,6 +9,7 @@ class HomeController < ApplicationController
  
 def save
     Post.create(:data => String.new(params[:data]))
+    binding.pry
     doc = Nokogiri::HTML(params[:data])
     doc.css('html').css('body').css('div').each do |link|
     @fri = Post.new
