@@ -6,14 +6,16 @@ $(document).ready(function(){
        var c_length = a.$.children.length
        var merge_text = ""
        var first_line=""
-       for (i= 0; i< c_length;i++){        
+       for (i= 0; i< c_length;i++){ 
+        if(!a.$.children[i].textContent == ""){  
          merge_text += "<p>"
          merge_text += a.$.children[i].textContent
          merge_text += "</p>"
          merge_text += "\n"
          merge_text += "\n"
+         }
        }
-       first_line=a.$.children[0].textContent
+       first_line=a.$.children[0].textContent;
        var document_text = CKEDITOR.instances.editor.getData();
        var merge = merge_text.replace( /<p>/g, "" );
        merge = merge_text.replace(/<\/?p[^>]*>/g, "");
